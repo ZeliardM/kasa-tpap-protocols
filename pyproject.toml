@@ -1,6 +1,6 @@
 [build-system]
 build-backend = "setuptools.build_meta"
-requires = [ "setuptools>=77.0.3" ]
+requires = [ "setuptools>=80.9.0" ]
 
 [project]
 name = "kasa-tpap-protocols"
@@ -11,13 +11,12 @@ license = "Apache-2.0"
 authors = [
   { name = "Robert L. Morren, Jr.", email = "ZeliardM@gmail.com" },
 ]
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 classifiers = [
   "Development Status :: 2 - Pre-Alpha",
   "Intended Audience :: Developers",
   "Natural Language :: English",
   "Operating System :: OS Independent",
-  "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
@@ -26,6 +25,9 @@ classifiers = [
 ]
 
 dependencies = [
+  "cryptography>=46.0.3",
+  "asn1crypto>=1.5.1",
+  "requests>=2.32.5",
 ]
 urls."Bug Tracker" = "https://github.com/ZeliardM/kasa-tpap-protocols/issues"
 urls.Changelog = "https://github.com/ZeliardM/kasa-tpap-protocols/blob/main/CHANGELOG.md"
@@ -36,6 +38,11 @@ dev = [
   "coverage",
   "pytest>=9,<10",
   "pytest-cov>=7,<8",
+  "uv",
+  "pre-commit",
+  "ruff",
+  "mypy",
+  "isort",
 ]
 
 [tool.ruff]
@@ -69,6 +76,13 @@ lint.per-file-ignores."tests/**/*" = [
   "D103",
   "D104",
   "S101",
+  "S102",
+  "S110",
+  "B017",
+  "E501",
+  "F811",
+  "F841",
+  "D105",
 ]
 lint.isort.known-first-party = [ "kasa_tpap_protocols", "tests" ]
 
@@ -120,6 +134,7 @@ exclude = [
 [[tool.mypy.overrides]]
 module = "tests.*"
 allow_untyped_defs = true
+ignore_errors = true
 
 [tool.semantic_release]
 version_toml = [ "pyproject.toml:project.version" ]

@@ -46,7 +46,11 @@ Install this via pip (or your favourite package manager):
 Start by importing it:
 
 ```python
-import kasa_tpap_protocols
+from kasa_tpap_protocols import NOCClient, get_curve_points
+
+client = NOCClient()
+noc = client.apply("user@example.com", "password")
+m, n = get_curve_points(2)
 ```
 
 ## Contributors ✨
