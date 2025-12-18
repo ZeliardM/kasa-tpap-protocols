@@ -34,7 +34,7 @@ urls.repository = "https://github.com/ZeliardM/kasa-tpap-protocols"
 [dependency-groups]
 dev = [
   "coverage",
-  "pytest>=8,<9",
+  "pytest>=9,<10",
   "pytest-cov>=7,<8",
 ]
 
