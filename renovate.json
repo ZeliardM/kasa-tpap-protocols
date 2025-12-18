@@ -1,3 +1,7 @@
 {
-  "extends": ["github>browniebroke/renovate-configs:python"]
+  "extends": ["github>browniebroke/renovate-configs:python"],
+  "pruneStaleBranches": true,
+  "branchCleanup": {
+    "enabled": true
+  }
 }
